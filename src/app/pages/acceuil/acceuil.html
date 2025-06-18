@@ -1,0 +1,19 @@
+<div class="acceuil-container">
+  <h1>✨ Bienvenue sur Music App ✨</h1>
+  
+  <img src="assets/images/acceuil.jpg" alt="Image d'accueil" class="acceuil-image">
+  
+  <div>
+    <button (click)="toggleParagraph()" class="toggle-btn">
+      {{ showParagraph ? '🔼 Moins' : '🔽 Découvrir Plus' }}
+    </button>
+  </div>
+  
+  @if (showParagraph) {
+    <p class="description">
+      🎵 Découvrez une collection incroyable d'artistes talentueux ! 
+      Notre plateforme vous permet d'explorer l'univers musical de vos artistes préférés. 
+      Plongez dans leurs histoires, admirez leurs photos et laissez-vous emporter par la magie de la musique. 🎶
+    </p>
+  }
+</div>

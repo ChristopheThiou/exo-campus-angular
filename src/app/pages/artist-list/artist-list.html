@@ -1,0 +1,39 @@
+<div class="artist-list">
+  <h1>Liste des Artistes</h1>
+  
+  <!-- Indicateur de chargement -->
+  @if (isLoading) {
+    <div class="loading">
+      Chargement des artistes...
+    </div>
+  }
+  
+  <!-- Message d'erreur -->
+  @if (error) {
+    <div class="error">
+      {{ error }}
+      <button (click)="loadArtists()">Réessayer</button>
+    </div>
+  }
+  
+  <!-- Formulaire d'ajout -->
+  <app-artist-form-component 
+    (addArtist)="onAddArtist($event)">
+  </app-artist-form-component>
+  
+  <!-- Liste des artistes -->
+  @if (!isLoading && !error) {
+    <div class="artists-grid">
+      @for (artist of artists; track artist.id) {
+        <app-artist 
+          [artist]="artist"
+          (deleteArtist)="onDeleteArtist($event)">
+        </app-artist>
+      } @empty {
+        <div class="no-artists">
+          Aucun artiste trouvé
+        </div>
+      }
+    </div>
+  }
+</div>

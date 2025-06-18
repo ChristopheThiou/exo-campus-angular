@@ -1,0 +1,95 @@
+.acceuil-container {
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.acceuil-container h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  font-weight: 300;
+}
+
+.acceuil-image {
+  width: 400px;
+  height: 300px;
+  object-fit: content;
+  border-radius: 20px;
+  margin: 2rem 0;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.acceuil-image:hover {
+  transform: scale(1.05);
+}
+
+.toggle-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 2rem 0;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.toggle-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+}
+
+.toggle-btn:active {
+  transform: translateY(-1px);
+}
+
+.description {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  padding: 2rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .acceuil-container h1 {
+    font-size: 2rem;
+  }
+  
+  .acceuil-image {
+    width: 300px;
+    height: 225px;
+  }
+  
+  .toggle-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
