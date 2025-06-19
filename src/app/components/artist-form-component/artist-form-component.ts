@@ -1,34 +1,32 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Artist } from '../../models/artist';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-artist-form-component',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './artist-form-component.html',
   styleUrl: './artist-form-component.scss'
 })
 export class ArtistFormComponent {
-  @Output() addArtist = new EventEmitter<Artist>();
-  
+  @Output() addArtist = new EventEmitter<{ name: string, photo: string }>();
+
   artistForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.artistForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      photo: ['', Validators.required]
+      photo: ['', [Validators.required, Validators.pattern(/^https?:\/\/.+/)]]
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.artistForm.valid) {
-      const newArtist: Artist = {
-        id: this.artistForm.value.id,
-        name: this.artistForm.value.name,
-        photo: this.artistForm.value.photo
+      const artistData = {
+        name: this.artistForm.get('name')?.value,
+        photo: this.artistForm.get('photo')?.value
       };
-      this.addArtist.emit(newArtist);
+      this.addArtist.emit(artistData);
       this.artistForm.reset();
     }
   }

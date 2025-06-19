@@ -1,12 +1,16 @@
 <nav class="navbar">
   <div class="nav-container">
-    <h2 class="nav-logo">Music App</h2>
+    <div class="nav-brand">
+      <span class="brand-icon">🎵</span>
+      <h2 class="nav-logo">Music Hub</h2>
+    </div>
+    
     <div class="nav-menu">
-      <button (click)="navigateToHome()" class="nav-button">
-        Accueil
+      <button (click)="navigateToHome()" class="nav-link" [class.active]="isActive('/')">
+        <span class="link-text">Accueil</span>
       </button>
-      <button (click)="navigateToArtists()" class="nav-button">
-        Artistes
+      <button (click)="navigateToArtists()" class="nav-link" [class.active]="isActive('/artists')">
+        <span class="link-text">Artistes</span>
       </button>
     </div>
   </div>

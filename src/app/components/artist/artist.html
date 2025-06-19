@@ -1,5 +1,14 @@
 <div class="artist-card">
-  <img [src]="artist.photo" [alt]="artist.name" class="artist-photo">
-  <h3>{{ artist.name }}</h3>
-  <button class="delete-btn" (click)="onDelete()">Supprimer</button>
+  <div class="card-image">
+    <img [src]="artist.photo" [alt]="artist.name" class="artist-photo">
+    <div class="image-overlay">
+      <button class="delete-btn" (click)="onDelete()">
+        <span class="delete-icon">🗑️</span>
+      </button>
+    </div>
+  </div>
+  
+  <div class="card-content">
+    <h3 class="artist-name">{{ artist.name }}</h3>
+  </div>
 </div>

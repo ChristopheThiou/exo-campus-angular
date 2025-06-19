@@ -33,14 +33,13 @@ export class ArtistList implements OnInit {
     
     this.artistsWebservice.getArtists().subscribe({
       next: (artists) => {
-        console.log('Artistes reçus:', artists);
         this.artists = artists || [];
         this.isLoading = false;
         this.cdr.detectChanges();
       },
       error: (error) => {
         console.error('Erreur lors du chargement des artistes:', error);
-        this.error = 'Erreur lors du chargement des artistes';
+        this.error = 'Impossible de charger les artistes';
         this.isLoading = false;
         this.cdr.detectChanges();
       }
@@ -50,12 +49,13 @@ export class ArtistList implements OnInit {
   onAddArtist(artistData: { name: string, photo: string }): void {
     this.artistsWebservice.createArtist(artistData).subscribe({
       next: (newArtist) => {
-        this.artists = [...this.artists, newArtist];
+        this.artists = [newArtist, ...this.artists];
         this.cdr.detectChanges();
       },
       error: (error) => {
         console.error('Erreur lors de la création de l\'artiste:', error);
-        this.error = 'Erreur lors de la création de l\'artiste';
+        this.error = 'Impossible d\'ajouter l\'artiste';
+        this.cdr.detectChanges();
       }
     });
   }
@@ -68,7 +68,8 @@ export class ArtistList implements OnInit {
       },
       error: (error) => {
         console.error('Erreur lors de la suppression de l\'artiste:', error);
-        this.error = 'Erreur lors de la suppression de l\'artiste';
+        this.error = 'Impossible de supprimer l\'artiste';
+        this.cdr.detectChanges();
       }
     });
   }

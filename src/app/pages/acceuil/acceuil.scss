@@ -1,95 +1,163 @@
-.acceuil-container {
-  text-align: center;
-  padding: 3rem 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.hero-container {
   min-height: 100vh;
-  color: white;
-}
-
-.acceuil-container h1 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-  font-weight: 300;
-}
-
-.acceuil-image {
-  width: 400px;
-  height: 300px;
-  object-fit: content;
-  border-radius: 20px;
-  margin: 2rem 0;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-}
-
-.acceuil-image:hover {
-  transform: scale(1.05);
-}
-
-.toggle-btn {
-  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 2rem 0;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.toggle-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-}
-
-.toggle-btn:active {
-  transform: translateY(-1px);
-}
-
-.description {
-  max-width: 600px;
-  margin: 2rem auto 0;
-  line-height: 1.8;
-  font-size: 1.1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem;
-  background: rgba(255,255,255,0.1);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-  animation: slideIn 0.5s ease-out;
 }
 
-@keyframes slideIn {
-  from { 
+.content {
+  max-width: 800px;
+  text-align: center;
+  
+  .hero-text {
+    margin-bottom: 3rem;
+    
+    h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 700;
+      color: white;
+      margin: 0 0 1rem 0;
+      letter-spacing: -2px;
+    }
+    
+    p {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+      font-weight: 300;
+    }
+  }
+  
+  .hero-visual {
+    margin-bottom: 3rem;
+    
+    .image-wrapper {
+      display: inline-block;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+    
+    .hero-image {
+      width: 400px;
+      height: 300px;
+      object-fit: contain;
+      display: block;
+      background-color: #941616;
+    }
+  }
+  
+  .explore-btn {
+    background: white;
+    color: #667eea;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  .info-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.5s ease-out;
+    
+    h3 {
+      color: #2c3e50;
+      font-size: 1.5rem;
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+    }
+    
+    p {
+      color: #555;
+      line-height: 1.6;
+      font-size: 1rem;
+      margin: 0;
+    }
+  }
+}
+
+@keyframes slideUp {
+  from {
     opacity: 0;
     transform: translateY(30px);
   }
-  to { 
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+// Responsive
 @media (max-width: 768px) {
-  .acceuil-container h1 {
-    font-size: 2rem;
+  .hero-container {
+    padding: 1rem;
   }
   
-  .acceuil-image {
-    width: 300px;
-    height: 225px;
+  .content {
+    .hero-text {
+      margin-bottom: 2rem;
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      p {
+        font-size: 1.1rem;
+      }
+    }
+    
+    .hero-visual {
+      margin-bottom: 2rem;
+      
+      .hero-image {
+        width: 300px;
+        height: 225px;
+      }
+    }
+    
+    .info-card {
+      padding: 2rem;
+    }
   }
-  
-  .toggle-btn {
-    padding: 12px 25px;
-    font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .content {
+    .hero-visual {
+      .hero-image {
+        width: 280px;
+        height: 210px;
+      }
+    }
+    
+    .info-card {
+      padding: 1.5rem;
+    }
   }
 }

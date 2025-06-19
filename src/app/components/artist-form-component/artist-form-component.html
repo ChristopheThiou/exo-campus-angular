@@ -1,21 +1,48 @@
 <form [formGroup]="artistForm" (ngSubmit)="onSubmit()" class="artist-form">
-  <h2>Ajouter un artiste</h2>
+  <div class="form-header">
+    <h2>Ajouter un artiste</h2>
+    <p>Partagez votre découverte musicale</p>
+  </div>
   
-  <div class="form-group">
-    <label for="name">Nom :</label>
-    <input id="name" type="text" formControlName="name" />
-    <div *ngIf="artistForm.get('name')?.invalid && artistForm.get('name')?.touched" class="error">
-      Le nom est requis (min. 2 caractères)
+  <div class="form-fields">
+    <div class="form-group">
+      <label for="name">Nom de l'artiste</label>
+      <input 
+        type="text" 
+        id="name" 
+        formControlName="name" 
+        placeholder="Ex: Daft Punk"
+        class="form-input">
+      @if (artistForm.get('name')?.invalid && artistForm.get('name')?.touched) {
+        <div class="error-message">
+          Le nom est requis (minimum 2 caractères)
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="photo">URL de la photo</label>
+      <input 
+        type="url" 
+        id="photo" 
+        formControlName="photo" 
+        placeholder="https://exemple.com/photo.jpg"
+        class="form-input">
+      @if (artistForm.get('photo')?.invalid && artistForm.get('photo')?.touched) {
+        <div class="error-message">
+          L'URL de la photo est requise
+        </div>
+      }
     </div>
   </div>
 
-  <div class="form-group">
-    <label for="photo">URL de la photo :</label>
-    <input id="photo" type="url" formControlName="photo" />
-    <div *ngIf="artistForm.get('photo')?.invalid && artistForm.get('photo')?.touched" class="error">
-      L'URL de la photo est requise
-    </div>
+  <div class="form-actions">
+    <button 
+      type="submit" 
+      [disabled]="artistForm.invalid"
+      class="submit-btn">
+      <span class="btn-icon">🎵</span>
+      <span>Ajouter l'artiste</span>
+    </button>
   </div>
-
-  <button type="submit" [disabled]="artistForm.invalid">Ajouter</button>
 </form>

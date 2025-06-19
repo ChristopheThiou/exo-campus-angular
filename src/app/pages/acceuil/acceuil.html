@@ -1,19 +1,28 @@
-<div class="acceuil-container">
-  <h1>✨ Bienvenue sur Music App ✨</h1>
-  
-  <img src="assets/images/acceuil.jpg" alt="Image d'accueil" class="acceuil-image">
-  
-  <div>
-    <button (click)="toggleParagraph()" class="toggle-btn">
-      {{ showParagraph ? '🔼 Moins' : '🔽 Découvrir Plus' }}
+<div class="hero-container">
+  <div class="content">
+    <div class="hero-text">
+      <h1>Music Hub</h1>
+      <p>Découvrez l'univers infini de la musique</p>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="image-wrapper">
+        <img src="assets/images/businessman-5791566_1280.jpg" alt="Music" class="hero-image">
+      </div>
+    </div>
+    
+    <button (click)="toggleParagraph()" class="explore-btn">
+      {{ showParagraph ? 'Réduire' : 'Explorer' }}
     </button>
+    
+    @if (showParagraph) {
+      <div class="info-card">
+        <h3>Une expérience musicale immersive</h3>
+        <p>
+          Découvrez une collection exceptionnelle d'artistes du monde entier. 
+          Explorez leurs univers musicaux et laissez-vous emporter par leurs créations.
+        </p>
+      </div>
+    }
   </div>
-  
-  @if (showParagraph) {
-    <p class="description">
-      🎵 Découvrez une collection incroyable d'artistes talentueux ! 
-      Notre plateforme vous permet d'explorer l'univers musical de vos artistes préférés. 
-      Plongez dans leurs histoires, admirez leurs photos et laissez-vous emporter par la magie de la musique. 🎶
-    </p>
-  }
 </div>
