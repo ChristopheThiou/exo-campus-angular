@@ -1,22 +1,22 @@
 <div class="hero-container">
   <div class="content">
     <div class="hero-text">
-      <h1>Music Hub</h1>
-      <p>Découvrez l'univers infini de la musique</p>
+      <h1 data-cy="hero-title">Music Hub</h1>
+      <p data-cy="hero-subtitle">Découvrez l'univers infini de la musique</p>
     </div>
     
     <div class="hero-visual">
       <div class="image-wrapper">
-        <img src="assets/images/businessman-5791566_1280.jpg" alt="Music" class="hero-image">
+        <img src="assets/images/businessman-5791566_1280.jpg" alt="Music" class="hero-image" data-cy="hero-image">
       </div>
     </div>
     
-    <button (click)="toggleParagraph()" class="explore-btn">
+    <button (click)="toggleParagraph()" class="explore-btn" data-cy="explore-btn">
       {{ showParagraph ? 'Réduire' : 'Explorer' }}
     </button>
     
     @if (showParagraph) {
-      <div class="info-card">
+      <div class="info-card" data-cy="info-card">
         <h3>Une expérience musicale immersive</h3>
         <p>
           Découvrez une collection exceptionnelle d'artistes du monde entier. 

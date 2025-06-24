@@ -1,0 +1,22 @@
+[
+  {
+    "id": "134286cbe0fbcc8d6e229b40ea18c0cf",
+    "name": "Justice",
+    "photo": "https://toutelaculture.com/wp-content/uploads/2012/01/20090212171201_justice4-400x400.jpg"
+  },
+  {
+    "id": "aa6e4335aa3488cd6ef33a723566985a",
+    "name": "Deadmau5",
+    "photo": "https://images.sk-static.com/images/media/profile_images/artists/244669/huge_avatar"
+  },
+  {
+    "id": "e892cbb57f08db5b5c6f0edaccb98fca",
+    "name": "Savant",
+    "photo": "https://mir-s3-cdn-cf.behance.net/project_modules/disp/01790311196803.560f3873b675e.jpg"
+  },
+  {
+    "id": "fourth-artist-id",
+    "name": "Fourth Artist",
+    "photo": "https://example.com/fourth-artist.jpg"
+  }
+]

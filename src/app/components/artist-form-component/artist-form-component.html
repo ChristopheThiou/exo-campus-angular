@@ -1,7 +1,7 @@
 <form [formGroup]="artistForm" (ngSubmit)="onSubmit()" class="artist-form">
   <div class="form-header">
-    <h2>Ajouter un artiste</h2>
-    <p>Partagez votre découverte musicale</p>
+    <h2 data-cy="form-header">Ajouter un artiste</h2>
+    <p data-cy="form-description">Partagez votre découverte musicale</p>
   </div>
   
   <div class="form-fields">
@@ -12,9 +12,10 @@
         id="name" 
         formControlName="name" 
         placeholder="Ex: Daft Punk"
-        class="form-input">
+        class="form-input"
+        data-cy="artist-name-input">
       @if (artistForm.get('name')?.invalid && artistForm.get('name')?.touched) {
-        <div class="error-message">
+        <div class="error-message" data-cy="error-message">
           Le nom est requis (minimum 2 caractères)
         </div>
       }
@@ -27,9 +28,10 @@
         id="photo" 
         formControlName="photo" 
         placeholder="https://exemple.com/photo.jpg"
-        class="form-input">
+        class="form-input"
+        data-cy="artist-photo-input">
       @if (artistForm.get('photo')?.invalid && artistForm.get('photo')?.touched) {
-        <div class="error-message">
+        <div class="error-message" data-cy="error-message">
           L'URL de la photo est requise
         </div>
       }
@@ -40,7 +42,8 @@
     <button 
       type="submit" 
       [disabled]="artistForm.invalid"
-      class="submit-btn">
+      class="submit-btn"
+      data-cy="submit-btn">
       <span>Ajouter l'artiste</span>
     </button>
   </div>

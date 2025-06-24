@@ -1,15 +1,15 @@
 <nav class="navbar">
   <div class="nav-container">
-    <div class="nav-brand">
-      <span class="brand-icon">🎵</span>
+    <div class="nav-brand" data-cy="nav-brand">
+      <span class="brand-icon" data-cy="brand-icon">🎵</span>
       <h2 class="nav-logo">Music Hub</h2>
     </div>
     
     <div class="nav-menu">
-      <button (click)="navigateToHome()" class="nav-link" [class.active]="isActive('/')">
+      <button (click)="navigateToHome()" class="nav-link" [class.active]="isActive('/')" data-cy="nav-home">
         <span class="link-text">Accueil</span>
       </button>
-      <button (click)="navigateToArtists()" class="nav-link" [class.active]="isActive('/artists')">
+      <button (click)="navigateToArtists()" class="nav-link" [class.active]="isActive('/artists')" data-cy="nav-artists">
         <span class="link-text">Artistes</span>
       </button>
     </div>

@@ -1,14 +1,14 @@
-<div class="artist-card">
+<div class="artist-card" data-cy="artist-card">
   <div class="card-image">
-    <img [src]="artist.photo" [alt]="artist.name" class="artist-photo">
+    <img [src]="artist.photo" [alt]="artist.name" class="artist-photo" data-cy="artist-photo">
     <div class="image-overlay">
-      <button class="delete-btn" (click)="onDelete()">
-        <span class="delete-icon">🗑️</span>
+      <button class="delete-btn" (click)="onDelete()" data-cy="delete-btn">
+        <span class="delete-icon" data-cy="delete-icon">🗑️</span>
       </button>
     </div>
   </div>
   
   <div class="card-content">
-    <h3 class="artist-name">{{ artist.name }}</h3>
+    <h3 class="artist-name" data-cy="artist-name">{{ artist.name }}</h3>
   </div>
 </div>

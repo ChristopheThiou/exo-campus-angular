@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:exo-angular-campus": "node dist/exo-angular-campus/server/server.mjs"
+    "serve:ssr:exo-angular-campus": "node dist/exo-angular-campus/server/server.mjs",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "e2e": "ng serve & wait-on http://localhost:4200 && cypress run",
+    "e2e:open": "ng serve & wait-on http://localhost:4200 && cypress open"
   },
   "private": true,
   "dependencies": {
@@ -30,15 +34,19 @@
     "@angular/cli": "^20.0.2",
     "@angular/compiler-cli": "^20.0.0",
     "@angular/platform-browser-dynamic": "^20.0.3",
+    "@cypress/schematic": "^3.0.0",
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
-    "@types/node": "^20.17.19",
+    "@types/node": "^20.19.1",
+    "cypress": "^14.5.0",
+    "cypress-plugin-tab": "^1.0.5",
     "jasmine-core": "~5.7.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.8.2"
+    "typescript": "~5.8.2",
+    "wait-on": "^8.0.3"
   }
 }

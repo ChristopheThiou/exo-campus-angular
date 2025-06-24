@@ -1,22 +1,22 @@
 <div class="artist-list">
   <div class="page-header">
-    <h1>Nos Artistes</h1>
-    <p>Découvrez notre collection d'artistes exceptionnels</p>
+    <h1 data-cy="page-title">Nos Artistes</h1>
+    <p data-cy="page-subtitle">Découvrez notre collection d'artistes exceptionnels</p>
   </div>
   
   <!-- États de chargement et erreur -->
   @if (isLoading) {
     <div class="loading-container">
-      <div class="spinner"></div>
-      <p>Chargement des artistes...</p>
+      <div class="spinner" data-cy="loading-spinner"></div>
+      <p data-cy="loading-text">Chargement des artistes...</p>
     </div>
   }
   
   @if (error) {
-    <div class="error-container">
+    <div class="error-container" data-cy="error-container">
       <div class="error-icon">⚠️</div>
-      <p>{{ error }}</p>
-      <button (click)="loadArtists()" class="retry-btn">Réessayer</button>
+      <p data-cy="error-message">{{ error }}</p>
+      <button (click)="loadArtists()" class="retry-btn" data-cy="retry-btn">Réessayer</button>
     </div>
   }
   
@@ -37,14 +37,15 @@
             @for (artist of artists; track artist.id) {
               <app-artist 
                 [artist]="artist"
-                (deleteArtist)="onDeleteArtist($event)">
+                (deleteArtist)="onDeleteArtist($event)"
+                data-cy="artist-card">
               </app-artist>
             }
           </div>
         } @else {
-          <div class="empty-state">
-            <div class="empty-icon">🎵</div>
-            <h3>Aucun artiste trouvé</h3>
+          <div class="empty-state" data-cy="empty-state">
+            <div class="empty-icon" data-cy="empty-icon">🎵</div>
+            <h3 data-cy="empty-message">Aucun artiste trouvé</h3>
             <p>Ajoutez votre premier artiste pour commencer</p>
           </div>
         }
